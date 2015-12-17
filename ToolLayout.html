@@ -2,59 +2,9 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>MyLayout</title>
-<style>
-
-body { background-color:#ffc; font-family:sans; font-size:10pt; }
-
-#divT { position:absolute; top: 10px; left:10px; width:400px; bottom:10px; }
-
-#divTools0 { border:solid 1px gray; padding:10px; background-color:#fff; border-radius:9px; }
-#divTools1 { border:solid 1px gray; padding:10px; background-color:#fff; border-radius:9px; }
-#divTools2 { border:solid 1px gray; padding:10px; background-color:#fff; border-radius:9px; }
-
-#divTools0 { position:absolute; height: 40px; width:380px; }
-#divTools1 { position:absolute; height:220px; }
-#divTools2 { position:absolute; overflow-y:scroll; }
-
-#divContent { position:absolute; top: 10px; left:420px; width:400px; bottom:10px; overflow-y: scroll;
-border:solid 1px gray; padding:10px; background-color:#fff; border-radius:9px; }
-
-</style>
-<script>
-function dump(obj){ var txt=''; for(var i in obj)txt+="\n"+i+' :: '+obj[i]; alert(txt);}
-
-function $(id){ return document.getElementById(id); }
-
-var toolVisible = false;
-var toolTop     = false;
-
-function showTools(){
-toolVisible=$("chkToolsVis").checked;
-toolTop    =$("chkToolsTop").checked;
-var t0 = $('divTools0');
-var t1 = $('divTools1');
-var t2 = $('divTools2');
-t1.style.display=toolVisible?'block':'none';
-var h0 = 0 , h1 = 0;
-h0 = t0.offsetHeight+10; if(toolVisible){ t1.style.bottom=(10+h0)+'px';
-h1 = t1.offsetHeight+10; }
-if(!toolTop){
-t0.style.top=''   ; t0.style.bottom=        '0' ;
-t1.style.top=''   ; t1.style.bottom= h0    +'px';
-t2.style.top='0px'; t2.style.bottom=(h0+h1)+'px'; return;}
-t0.style.top=        '0' ; t0.style.bottom='';
-t1.style.top= h0    +'px'; t1.style.bottom='';
-t2.style.top=(h0+h1)+'px'; t2.style.bottom='0';
-}
-
-function onload(){
-$("chkToolsVis").checked=toolVisible;
-$("chkToolsTop").checked=toolTop;
-showTools(); // dump($('divTools0'));
-}
-
-</script>
+<title>ToolLayout</title>
+<link    rel="stylesheet"     href="ToolLayout.css">
+<script type="text/javascript" src="ToolLayout.js"></script>
 </head>
 <body onload="onload()">
 
@@ -76,7 +26,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at sapien congu
 </span></div>
 
 <div id="divTools2"><b style="color:red">divTools2</b>
-<br><br>Da li bi se nekak mogel naterati <b>CSS</b> da odrađuje posel kaj sad odrađuje funkcija <b>showTools</b> ?
+<br><br>Croatian: Da li bi se nekak mogel naterati <b>CSS</b> da odrađuje posel kaj sad odrađuje funkcija <b>showTools</b> ?
+<br><br>English: is it possible that <b>CSS</b> work out what is now doing JavaScript function <b>showTools</b> ?
 <br><br>
 <span style="color:lightgray">
 Morbi laoreet nulla arcu, sit amet lobortis mi sollicitudin vitae. Sed cursus, quam in hendrerit tincidunt, arcu nibh pellentesque leo, a cursus velit velit eget turpis. Sed efficitur tellus ac ante feugiat porttitor. Etiam porta felis a dolor faucibus auctor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed in vehicula risus. In consequat lacinia tellus, quis commodo lacus tincidunt ac. Duis egestas tellus in maximus eleifend. Praesent vel sollicitudin tellus. Ut volutpat imperdiet condimentum. Nam nec leo vel ligula laoreet pellentesque luctus ut lacus. Nullam laoreet finibus malesuada. 

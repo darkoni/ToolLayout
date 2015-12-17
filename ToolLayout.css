@@ -1,0 +1,16 @@
+
+body { background-color:#ffc; font-family:sans; font-size:10pt; }
+
+#divT { position:absolute; top: 10px; left:10px; width:400px; bottom:10px; }
+
+#divTools0 { border:solid 1px gray; padding:10px; background-color:#fff; border-radius:9px; }
+#divTools1 { border:solid 1px gray; padding:10px; background-color:#fff; border-radius:9px; }
+#divTools2 { border:solid 1px gray; padding:10px; background-color:#fff; border-radius:9px; }
+
+#divTools0 { position:absolute; height: 40px; width:380px; }
+#divTools1 { position:absolute; height:220px; }
+#divTools2 { position:absolute; overflow-y:scroll; }
+
+#divContent { position:absolute; top: 10px; left:420px; width:400px; bottom:10px; overflow-y: scroll;
+border:solid 1px gray; padding:10px; background-color:#fff; border-radius:9px; }
+
