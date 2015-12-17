@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MyLayout</title>
+<style>
+
+body { background-color:#ffc; font-family:sans; font-size:10pt; }
+
+#divT { position:absolute; top: 10px; left:10px; width:400px; bottom:10px; }
+
+#divTools0 { border:solid 1px gray; padding:10px; background-color:#fff; border-radius:9px; }
+#divTools1 { border:solid 1px gray; padding:10px; background-color:#fff; border-radius:9px; }
+#divTools2 { border:solid 1px gray; padding:10px; background-color:#fff; border-radius:9px; }
+
+#divTools0 { position:absolute; height: 40px; width:380px; }
+#divTools1 { position:absolute; height:220px; }
+#divTools2 { position:absolute; overflow-y:scroll; }
+
+#divContent { position:absolute; top: 10px; left:420px; width:400px; bottom:10px; overflow-y: scroll;
+border:solid 1px gray; padding:10px; background-color:#fff; border-radius:9px; }
+
+</style>
+<script>
+function dump(obj){ var txt=''; for(var i in obj)txt+="\n"+i+' :: '+obj[i]; alert(txt);}
+
+function $(id){ return document.getElementById(id); }
+
+var toolVisible = false;
+var toolTop     = false;
+
+function showTools(){
+toolVisible=$("chkToolsVis").checked;
+toolTop    =$("chkToolsTop").checked;
+var t0 = $('divTools0');
+var t1 = $('divTools1');
+var t2 = $('divTools2');
+t1.style.display=toolVisible?'block':'none';
+var h0 = 0 , h1 = 0;
+h0 = t0.offsetHeight+10; if(toolVisible){ t1.style.bottom=(10+h0)+'px';
+h1 = t1.offsetHeight+10; }
+if(!toolTop){
+t0.style.top=''   ; t0.style.bottom=        '0' ;
+t1.style.top=''   ; t1.style.bottom= h0    +'px';
+t2.style.top='0px'; t2.style.bottom=(h0+h1)+'px'; return;}
+t0.style.top=        '0' ; t0.style.bottom='';
+t1.style.top= h0    +'px'; t1.style.bottom='';
+t2.style.top=(h0+h1)+'px'; t2.style.bottom='0';
+}
+
+function onload(){
+$("chkToolsVis").checked=toolVisible;
+$("chkToolsTop").checked=toolTop;
+showTools(); // dump($('divTools0'));
+}
+
+</script>
+</head>
+<body onload="onload()">
+
+<div id="divContent"><b style="color:red">divContent</b><span style="color:lightgray">
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi mauris diam, dapibus et diam at, tempor volutpat mauris. Nulla sollicitudin nisi et vehicula dapibus. Sed eget auctor massa. Aliquam consequat condimentum dui dictum bibendum. Mauris tempus, turpis et sodales tempor, magna tellus fermentum erat, mattis luctus tortor metus sit amet metus. Mauris quis laoreet turpis, id bibendum libero. Proin ut turpis ultrices, malesuada sem nec, hendrerit odio. Nunc quis volutpat odio. Sed non ultrices purus. Cras in lectus vel purus finibus condimentum eu ut risus. Maecenas dignissim porta nulla eget venenatis. Proin rhoncus diam lectus, at condimentum augue dictum faucibus. In pellentesque nisl at nibh molestie elementum.
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi mauris diam, dapibus et diam at, tempor volutpat mauris. Nulla sollicitudin nisi et vehicula dapibus. Sed eget auctor massa. Aliquam consequat condimentum dui dictum bibendum. Mauris tempus, turpis et sodales tempor, magna tellus fermentum erat, mattis luctus tortor metus sit amet metus. Mauris quis laoreet turpis, id bibendum libero. Proin ut turpis ultrices, malesuada sem nec, hendrerit odio. Nunc quis volutpat odio. Sed non ultrices purus. Cras in lectus vel purus finibus condimentum eu ut risus. Maecenas dignissim porta nulla eget venenatis. Proin rhoncus diam lectus, at condimentum augue dictum faucibus. In pellentesque nisl at nibh molestie elementum.
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi mauris diam, dapibus et diam at, tempor volutpat mauris. Nulla sollicitudin nisi et vehicula dapibus. Sed eget auctor massa. Aliquam consequat condimentum dui dictum bibendum. Mauris tempus, turpis et sodales tempor, magna tellus fermentum erat, mattis luctus tortor metus sit amet metus. Mauris quis laoreet turpis, id bibendum libero. Proin ut turpis ultrices, malesuada sem nec, hendrerit odio. Nunc quis volutpat odio. Sed non ultrices purus. Cras in lectus vel purus finibus condimentum eu ut risus. Maecenas dignissim porta nulla eget venenatis. Proin rhoncus diam lectus, at condimentum augue dictum faucibus. In pellentesque nisl at nibh molestie elementum.
+</span></div>
+
+<div id="divT">
+
+<div id="divTools0"><b style="color:red">divTools0</b>
+<input id="chkToolsVis" type="checkbox" onclick="showTools()"> show tools
+<input id="chkToolsTop" type="checkbox" onclick="showTools()"> tools on top
+</div>
+
+<div id="divTools1"><b style="color:red">divTools1</b><span style="color:lightgray">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at sapien congue, mollis mi quis, dapibus quam. Duis pulvinar augue risus, nec varius lectus condimentum eget. Praesent rutrum ipsum dolor, sagittis tincidunt nisi maximus hendrerit. Nulla interdum, magna sit amet convallis consectetur, sapien ligula vulputate nulla, vel sodales libero sapien tincidunt elit. Etiam molestie turpis neque. Phasellus vel ligula non odio dignissim dictum. Etiam a nibh pretium, finibus lectus ut, gravida tortor. Phasellus egestas, quam ut commodo imperdiet, diam enim pulvinar mauris, id mollis quam erat eget orci. Morbi id sagittis urna. Etiam quis imperdiet metus. Etiam mattis metus vitae porttitor sodales. 
+</span></div>
+
+<div id="divTools2"><b style="color:red">divTools2</b>
+<br><br>Da li bi se nekak mogel naterati <b>CSS</b> da odrađuje posel kaj sad odrađuje funkcija <b>showTools</b> ?
+<br><br>
+<span style="color:lightgray">
+Morbi laoreet nulla arcu, sit amet lobortis mi sollicitudin vitae. Sed cursus, quam in hendrerit tincidunt, arcu nibh pellentesque leo, a cursus velit velit eget turpis. Sed efficitur tellus ac ante feugiat porttitor. Etiam porta felis a dolor faucibus auctor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed in vehicula risus. In consequat lacinia tellus, quis commodo lacus tincidunt ac. Duis egestas tellus in maximus eleifend. Praesent vel sollicitudin tellus. Ut volutpat imperdiet condimentum. Nam nec leo vel ligula laoreet pellentesque luctus ut lacus. Nullam laoreet finibus malesuada. 
+Morbi laoreet nulla arcu, sit amet lobortis mi sollicitudin vitae. Sed cursus, quam in hendrerit tincidunt, arcu nibh pellentesque leo, a cursus velit velit eget turpis. Sed efficitur tellus ac ante feugiat porttitor. Etiam porta felis a dolor faucibus auctor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed in vehicula risus. In consequat lacinia tellus, quis commodo lacus tincidunt ac. Duis egestas tellus in maximus eleifend. Praesent vel sollicitudin tellus. Ut volutpat imperdiet condimentum. Nam nec leo vel ligula laoreet pellentesque luctus ut lacus. Nullam laoreet finibus malesuada. 
+Morbi laoreet nulla arcu, sit amet lobortis mi sollicitudin vitae. Sed cursus, quam in hendrerit tincidunt, arcu nibh pellentesque leo, a cursus velit velit eget turpis. Sed efficitur tellus ac ante feugiat porttitor. Etiam porta felis a dolor faucibus auctor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed in vehicula risus. In consequat lacinia tellus, quis commodo lacus tincidunt ac. Duis egestas tellus in maximus eleifend. Praesent vel sollicitudin tellus. Ut volutpat imperdiet condimentum. Nam nec leo vel ligula laoreet pellentesque luctus ut lacus. Nullam laoreet finibus malesuada. 
+</span></div>
+
+</div>
+
+</body>
+</html>
